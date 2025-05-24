@@ -57,10 +57,12 @@ return {
 			lualine_y = {
 				{
 					function()
+						local version = '0.11.0+ga99c469e54'
+						version = version:match '^[^+]+'
 						return string.format(
 							'%s %s',
 							vim.g.have_nerd_font and '' or 'nvim',
-							vim.version()
+							version
 						)
 					end,
 				},

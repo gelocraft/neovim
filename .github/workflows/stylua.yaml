@@ -4,7 +4,11 @@ name: Stylua Check
 on:  # yamllint disable-line rule:truthy
   push:
     paths:
-      - nvim/**.lua
+      - init.lua
+      - lsp/*.lua
+      - lua/**.lua
+      - after/ftplugin/*.lua
+
   workflow_dispatch:
 
 jobs:

@@ -6,7 +6,7 @@ return {
 		require('lint').linters_by_ft = {
 			sh = { 'shellcheck' },
 			yaml = { 'yamllint' },
-			python = { 'pylint' },
+			python = { 'ruff', 'pylint' },
 			terraform = { 'tflint' },
 			javascript = { 'eslint' },
 			typescript = { 'eslint' },

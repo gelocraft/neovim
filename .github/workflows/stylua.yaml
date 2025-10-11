@@ -28,4 +28,4 @@ jobs:
 
       - name: Stylua Check
         run: stylua --check .
-        working-directory: nvim/
+        working-directory: ./

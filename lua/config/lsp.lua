@@ -13,6 +13,7 @@ if vim.g.enable_native_lsp then
 		'pyright',
 		'tsserver',
 		'terraformls',
+		'clangd',
 		'rust_analyzer',
 	}
 end

@@ -24,7 +24,7 @@ return {
 		'rebelot/kanagawa.nvim',
 		lazy = false,
 		priority = 1000,
-		transparent = true,
+		transparent = false,
 		opts = {
 			keywordStyle = { italic = false },
 			colors = {

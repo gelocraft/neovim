@@ -19,6 +19,7 @@ return {
 			json = { 'prettierd', 'prettier' },
 			html = { 'prettierd', 'prettier' },
 			css = { 'prettierd', 'prettier' },
+			nix = { 'nixfmt' },
 		},
 
 		format_after_save = {

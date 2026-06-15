@@ -26,15 +26,7 @@ return {
 			lualine_c = {
 				'%=',
 				{
-					function()
-						local lsp_clients = vim.lsp.get_clients { bufnr = 0 }
-						if lsp_clients[1] == nil then return '' end
-						local active_lsp = {}
-						for _, lsp in ipairs(lsp_clients) do
-							table.insert(active_lsp, lsp.name)
-						end
-						return table.concat(active_lsp, ' │ ')
-					end,
+					'lsp_status',
 					color = function()
 						local modes = {
 							['i'] = 'lualine_b_insert',
@@ -55,17 +47,6 @@ return {
 			},
 			lualine_x = { 'filetype' },
 			lualine_y = {
-				{
-					function()
-						local version = '0.11.0+ga99c469e54'
-						version = version:match '^[^+]+'
-						return string.format(
-							'%s %s',
-							vim.g.have_nerd_font and '' or 'nvim',
-							version
-						)
-					end,
-				},
 				'progress',
 			},
 			lualine_z = {

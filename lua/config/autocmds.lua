@@ -70,7 +70,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 			keymap(
 				'K',
 				hover_definition {
-					border = 'sharp',
+					border = 'rounded',
 					title = 'hover definition',
 					title_pos = 'center',
 				},

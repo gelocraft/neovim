@@ -1,28 +1,23 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
-	dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
+	branch = 'main',
 	cmd = { 'TSInstall', 'TSBufEnable', 'TSBufDisable', 'TSModuleInfo' },
-	main = 'nvim-treesitter.configs',
 	event = { 'BufNewFile', 'BufReadPost' },
 	lazy = vim.fn.argc(-1) == 0,
-	opts = {
-		modules = {},
-		auto_install = true,
-		sync_install = false,
-		ignore_install = {},
-		ensure_installed = {
-			'c',
-			'lua',
+	config = function()
+		local parsers = {
 			'vim',
 			'vimdoc',
-			'query',
 			'regex',
 			'yaml',
-			'markdown',
-			'markdown_inline',
-		},
-		highlight = { enable = true },
-		indent = { enable = true, disable = { 'python', 'html' } },
-	},
-	build = ':TSUpdate',
+			'html',
+			'lua',
+			'go',
+		}
+
+		require('nvim-treesitter').install(
+			parsers,
+			{ force = false, generate = false, summary = true }
+		)
+	end,
 }

@@ -1,23 +1,23 @@
 return {
 	'nvim-treesitter/nvim-treesitter-context',
-	cmd = { 'TSContextEnable', 'TSContextDisable', 'TSContextToggle' },
+	cmd = { 'TSContext' },
 	init = function()
 		vim.keymap.set(
 			'n',
 			'<leader>te',
-			'<cmd>TSContextEnable<cr>',
+			'<cmd>TSContext enable<cr>',
 			{ desc = 'Enable TSContext' }
 		)
 		vim.keymap.set(
 			'n',
 			'<leader>td',
-			'<cmd>TSContextDisable<cr>',
+			'<cmd>TSContext disable<cr>',
 			{ desc = 'Disable TSContext' }
 		)
 		vim.keymap.set(
 			'n',
 			'<leader>tt',
-			'<cmd>TSContextToggle<cr>',
+			'<cmd>TSContext toggle<cr>',
 			{ desc = 'Toggle TSContext' }
 		)
 	end,

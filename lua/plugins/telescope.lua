@@ -22,7 +22,7 @@ return {
 			-- MY DOTFILES
 			{
 				'<leader>cd',
-				cmd 'Telescope find_files cwd=~/.dotfiles',
+				cmd 'Telescope git_files cwd=~/.dotfiles',
 				desc = 'configure dotfiles',
 			},
 
@@ -30,7 +30,7 @@ return {
 			{
 				'<leader>cn',
 				cmd(
-					'Telescope find_files cwd' .. '=' .. vim.fn.stdpath 'config'
+					'Telescope git_files cwd' .. '=' .. vim.fn.stdpath 'config'
 				),
 				desc = 'neovim config files',
 			},

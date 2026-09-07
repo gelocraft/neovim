@@ -1,12 +1,13 @@
 return {
 	'folke/noice.nvim',
 	event = 'VeryLazy',
+	enabled = true,
 	opts = {
 		popupmenu = { enabled = false },
 		health = { checker = false },
-		notify = { enabled = true, view = 'notify' },
+		notify = { enabled = false, view = 'notify' },
 		messages = {
-			enabled = true,
+			enabled = false,
 			view = 'notify',
 			view_error = 'notify',
 			view_warn = 'notify',
@@ -23,7 +24,7 @@ return {
 				throttle = 1000 / 30,
 			},
 			message = { enabled = false },
-			hover = { enabled = true, silent = true },
+			hover = { enabled = false, silent = false },
 			signature = { enabled = false },
 		},
 		presets = {

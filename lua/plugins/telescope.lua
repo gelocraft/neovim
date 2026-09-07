@@ -47,9 +47,9 @@ return {
 				desc = '[F]ind [R]egisters',
 			},
 			{
-				'<leader><space>',
+				'<leader>b',
 				cmd 'Telescope buffers',
-				desc = '[ ] Find existing buffers',
+				desc = '[B] Find existing buffers',
 			},
 			{
 				'<leader>jl',

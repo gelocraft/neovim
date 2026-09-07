@@ -7,6 +7,7 @@ return {
 			yaml = { 'yamlfmt' },
 			lua = { 'stylua' },
 			python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
+			c = { 'clang-format' },
 			go = { 'gofmt' },
 			rust = { 'rustfmt' },
 			ocaml = { 'ocamlformat' },
@@ -24,7 +25,7 @@ return {
 
 		format_after_save = {
 			async = true,
-			lsp_fallback = true,
+			lsp_fallback = false,
 		},
 
 		notify_on_error = true,

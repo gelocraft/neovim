@@ -71,7 +71,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 				'K',
 				hover_definition {
 					border = 'rounded',
-					title = 'hover definition',
+					title = ' hover definition ',
 					title_pos = 'center',
 				},
 				'Hover Documentation'

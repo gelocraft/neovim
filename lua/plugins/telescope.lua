@@ -133,6 +133,13 @@ return {
 				cmd 'Telescope man_pages',
 				desc = 'Man Pages',
 			},
+
+			-- TMUX SESSIONIZER
+			{
+				'<c-p>',
+				require 'custom.telescope.tmux_sessionizer',
+				desc = 'Tmux Sessionizer',
+			},
 		}
 	end,
 	opts = function()

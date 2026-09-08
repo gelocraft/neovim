@@ -87,7 +87,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		end
 
 		if client:supports_method 'textDocument/signatureHelp' then
-			keymap('<C-k>', vim.lsp.buf.signature_help, 'Signature Help')
+			-- keymap('<C-k>', vim.lsp.buf.signature_help, 'Signature Help')
 		end
 
 		if client.server_capabilities.documentHighlightProvider then

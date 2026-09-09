@@ -80,10 +80,6 @@ keymap(
 	{ expr = true, silent = true }
 )
 
--- move lines (up & down)
-keymap('n', '<c-k>', 'ddkP')
-keymap('n', '<c-j>', 'ddp')
-
 vim.keymap.set('n', '<leader>crp', function()
 	if vim.fn.expand '%' == '' then
 		vim.notify('No file path available', vim.log.levels.WARN)

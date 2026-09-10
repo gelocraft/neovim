@@ -85,6 +85,24 @@ return {
 				'<cmd>Gitsigns toggle_current_line_blame<cr>',
 				{ desc = '[L]ine [B]lame toggle' }
 			)
+			keymap(
+				'n',
+				'<leader>gl',
+				'<cmd>Gitsigns toggle_linehl<cr>',
+				{ desc = 'Gitsigns toggle_linehl' }
+			)
+			keymap(
+				'n',
+				'<leader>gw',
+				'<cmd>Gitsigns toggle_word_diff<cr>',
+				{ desc = 'Gitsigns toggle_word_diff' }
+			)
+			keymap(
+				'n',
+				'<leader>gtd',
+				'<cmd>Gitsigns toggle_deleted<cr>',
+				{ desc = 'Gitsigns toggle_deleted' }
+			)
 		end,
 	},
 

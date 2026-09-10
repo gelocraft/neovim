@@ -22,15 +22,16 @@ return function()
 			'3',
 			'--hidden',
 			'--exclude',
-			'{.git,.cache,.npm,.cargo,.go,go}',
+			'{.git,.cache,.npm,.cargo,.go,go,node_modules}',
 		}
 	end
 
-	---@param session string
+	---@param session_name string
 	---@return boolean
-	local switch_client = function(session)
-		local exit_code = vim.system({ 'tmux', 'switch-client', '-t', session })
-			:wait().code
+	local switch_client = function(session_name)
+		local exit_code =
+			vim.system({ 'tmux', 'switch-client', '-t', session_name })
+				:wait().code
 
 		return exit_code == 0
 	end
@@ -38,7 +39,7 @@ return function()
 	---@param session_name string
 	---@return boolean
 	local create_session = function(session_name, directory)
-		vim.system({
+		local exit_code = vim.system({
 			'tmux',
 			'new-session',
 			'-ds',
@@ -46,8 +47,27 @@ return function()
 			'-c',
 			directory,
 		}, { cwd = directory, detach = true })
+			:wait().code
 
-		return true
+		return exit_code == 0
+	end
+
+	---@param session_name string
+	---@param absolute_path string
+	local sessionizer = function(session_name, absolute_path)
+		local success = switch_client(session_name)
+
+		if not success then
+			local ok = create_session(session_name, absolute_path)
+			if not ok then
+				vim.notify(
+					'ERROR (custom.telescope.tmux_sessionizer): Failed creating Tmux session',
+					vim.log.levels.ERROR
+				)
+			else
+				switch_client(session_name)
+			end
+		end
 	end
 
 	pickers
@@ -67,25 +87,14 @@ return function()
 
 					if entry and vim.env.TMUX ~= nil then
 						local dir_path = entry.value:gsub('/$', '')
+						local absolute_path =
+							vim.fs.joinpath(vim.env.HOME, dir_path)
 						local session =
 							vim.fs.basename(dir_path):gsub('^%.', '_')
 
-						local success = switch_client(session)
-
-						if not success then
-							local ok = create_session(
-								session,
-								vim.fs.joinpath(vim.env.HOME, dir_path)
-							)
-							if not ok then
-								vim.notify(
-									'ERROR (custom.telescope.tmux_sessionizer): Failed creating Tmux session',
-									vim.log.levels.ERROR
-								)
-							else
-								switch_client(session)
-							end
-						end
+						vim.schedule(
+							function() sessionizer(session, absolute_path) end
+						)
 					else
 						vim.notify(
 							'ERROR (custom.telescope.tmux_sessionizer): Outside Tmux',

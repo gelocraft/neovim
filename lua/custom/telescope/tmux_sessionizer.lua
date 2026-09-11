@@ -21,6 +21,7 @@ return function()
 			'--max-depth',
 			'3',
 			'--hidden',
+			'--absolute-path',
 			'--exclude',
 			'{.git,.cache,.npm,.cargo,.go,go,node_modules}',
 		}
@@ -87,13 +88,11 @@ return function()
 
 					if entry and vim.env.TMUX ~= nil then
 						local dir_path = entry.value:gsub('/$', '')
-						local absolute_path =
-							vim.fs.joinpath(vim.env.HOME, dir_path)
 						local session =
-							vim.fs.basename(dir_path):gsub('^%.', '_')
+							dir_path:match('([^/]+/[^/]+)$'):gsub('%.', '_')
 
 						vim.schedule(
-							function() sessionizer(session, absolute_path) end
+							function() sessionizer(session, dir_path) end
 						)
 					else
 						vim.notify(

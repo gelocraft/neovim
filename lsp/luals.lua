@@ -24,6 +24,7 @@ return {
 					'${3rd}/luv/library',
 					'${3rd}/luassert/library',
 					'/usr/local/luals/meta/template',
+					-- vim.fn.stdpath 'data' .. '/lazy/blink.cmp',
 				},
 			},
 		},

@@ -136,7 +136,7 @@ return {
 
 			-- TMUX SESSIONIZER
 			{
-				'<leader>ts',
+				'<leader>tx',
 				require 'custom.telescope.tmux_sessionizer',
 				desc = 'Tmux Sessionizer',
 			},

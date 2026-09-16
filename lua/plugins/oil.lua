@@ -6,6 +6,10 @@ return {
 	keys = { { '<leader>e', '<cmd>Oil<cr>', desc = 'File Explorer' } },
 	opts = {
 		view_options = { show_hidden = true },
+		columns = {
+			{ 'size', highlight = 'OilHidden', align = 'right' },
+			{ 'icon', align = 'left' },
+		},
 		default_file_explorer = false,
 		use_default_keymaps = false,
 		keymaps = {
